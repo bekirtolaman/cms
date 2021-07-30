@@ -70,7 +70,27 @@ class Product extends CI_Controller
 
         if ($validate) {
 
-           echo "Başarılı";
+          $insert = $this->product_model->add(
+               array(
+                   "title"              => $this->input->post("title"),
+                   "description"        => $this->input->post("description"),
+                   "url"                => "deneme-url",
+                   "rank"               => 0,
+                   "isActive"           => 1,
+                   "createdAt"          => date("Y-m-d H:i:s"),
+
+                    )
+               );
+            if ($insert) {
+
+               echo "Başarılı";
+
+            }else {
+                
+                echo "Başarısız";
+            }
+
+
         }else{
             
             $viewData = new stdClass();
