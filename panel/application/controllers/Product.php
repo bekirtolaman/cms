@@ -52,6 +52,7 @@ class Product extends CI_Controller
         //Kurallar
 
          $this->form_validation->set_rules("title","Başlık","required|trim");
+         $this->form_validation->set_rules("description","Açıklama","required|trim");
 
             //Hata mesaj açıklamaları
          $this->form_validation->set_message(
@@ -72,7 +73,15 @@ class Product extends CI_Controller
            echo "Başarılı";
         }else{
             
-            echo validation_errors();
+            $viewData = new stdClass();
+
+         
+         /** View'e gönderilecek değişkenler. */
+         $viewData->viewFolder = $this->viewFolder;
+         $viewData->subviewFolder = "add";
+         $viewData->form_error = true;
+
+         $this->load->view("{$viewData->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
         }
     }
 }

@@ -13,10 +13,19 @@
 							<div class="form-group">
 								<label for="exampleInputEmail1">Başlık</label>
 								<input type="text" class="form-control" placeholder="Başlık" name="title">
+								
+									<?php  if(isset($form_error)){ ?>
+										<small class="input-form-error"><?php echo form_error("title") ?> </small>
+									<?php }	?>
+
 							</div>
 							<div class="form-group">
 								<label for="exampleInputPassword1">Açıklama</label>
 				                <textarea name="description" class="m-0" data-plugin="summernote" data-options="{height: 250}"></textarea>
+
+								<?php  if(isset($form_error)){ ?>
+										<small class="input-form-error"><?php echo form_error("description") ?> </small>
+									<?php }	?>
 
 							</div>							
 							<button type="submit" class="btn btn-primary btn-md btn-outline">Kaydet</button>
