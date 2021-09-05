@@ -16,7 +16,7 @@ class Dashboard extends CI_Controller {
 
 		$viewData = new stdClass();
 		$viewData->viewFolder = $this->viewFolder;
-		$viewData->subviewFolder = "list"; 
+		$viewData->subviewFolder = "list";
 
 		$this->load->view("{$viewData->viewFolder}/{$viewData->subviewFolder}/index", $viewData);
 	}
